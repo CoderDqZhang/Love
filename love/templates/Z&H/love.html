@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html xmlns="" xml:lang="en" lang="en">
+<head>
+    <title>Our Love Story</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    {% load staticfiles %}
+    <embed src="{% static "阿摩司-why not.mp3"%}" hidden="true" autostart="true" loop="true">
+    <link href="{% static "default.css" %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{% static "jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "garden.js" %}"></script>
+    <script type="text/javascript" src="{% static "functions.js" %}"></script>
+</head>
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="comments">/**</span><br />
+                <span class="space"/><span class="comments">* 我们是在同一个APP里面的两个对象</span><br />
+                <span class="space"/><span class="comments">* 我们有这一样的属性,不一样的属性名称</span><br />
+                <span class="space"/><span class="comments">*/</span><br />
+                <span class="comments">// 你的对象^_^</span><br />
+                Boy *i = [[Boy alloc] init];<br />
+                i.name = <span class="keyword">@"Zhang Dequan"</span>;<br />
+                <span class="comments">// 我的对象^_^</span><br />
+                Girl u = [[Girl alloc] init];<br />
+                u.name = <span class="keyword">@"Huang Ying"</span>;<br />
+                <span class="comments">// 我的对象里每个方法总是需要你来当参数 </span><br />
+                [i love:u];<br />
+                <span class="comments">// 你有说你自己的想法</span><br />
+                [u sayOtherthing];<br />
+                <span class="comments">//这里永远不会为真 </span><br />
+                <span class="comments">//BOOL giveUp = [i thinkAbout:u and:[u sayAboutAnyThing]];</span><br />
+                <span class="comments">// 我会照顾你,不管你是否愿意.</span><br />
+                [i takeCareOf:u];<br />
+                <span class="comments">//</span><br />
+                <span class="keyword">BOOL</span> isAccept = [u thinkAbout:i];<br />
+                <span class="keyword">while</span> (isAccept) {<br />
+                <span class="placeholder"/><span class="comments">// 这里代表的心意，为你，千千万万遍</span><br />
+                <span class="placeholder"/>[i waitFor:u];<br />
+                <span class="placeholder"/>isAccept = [u thinkAbout:i];<br />
+                }<br />
+                [u accept:i];<br />
+                <span class="comments">//我会用时间来证明这个返回值永远为True</span><br />
+                <span class="keyword">BOOL</span> uIsHappy = [i happyWith:u starTime:[NSDate date] endTime:[Earth destroy]];
+                 <br />
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3712320065678109";
+/* lovead */
+google_ad_slot = "0650322805";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3712320065678109";
+/* lovead */
+google_ad_slot = "0650322805";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+</center>
+                        Huang Ying, I will have fallen in love with you for
+                        <div id="elapseClock" style="display:none"></div>
+                        <a href='/mAccpetz/loveStartTime' id="accept">Click And Accept</a>
+                    </div>
+                    <div id="loveu">
+                        Love u forever and ever.<br/>
+                        <div class="signature">- Zhang Dequan</div>
+                    </div>
+                </div>A
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 10000);
+            
+            $("#accept").click(function(){
+                $(this).hide();
+                $("#elapseClock").show();
+                var together = new Date();
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+            })
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+</body>
+</html>

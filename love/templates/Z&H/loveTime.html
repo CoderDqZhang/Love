@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load staticfiles %}
+	<embed src="{% static "Ed Sheeran-Thinking Out Loud.mp3"%}" hidden="true" autostart="true" loop="true">
+    <meta charset="UTF-8">
+    <script type="text/javascript"> 
+	function disptime()
+	{
+		var today = new Date(); //获得当前时间
+		var currentTime = CurentTime();
+		var togetherTime = "{{ year }}-{{ mouth }}-{{ day }} {{ hh }}:{{ mm }}:{{ ss }}";
+		var day = GetDateDiff(togetherTime,currentTime,"day");
+		var hour = GetDateDiff(togetherTime,currentTime,"hour");
+		var minute = GetDateDiff(togetherTime,currentTime,"minute");
+		var second = GetDateDiff(togetherTime,currentTime,"second");
+	    document.getElementById("myclock").innerHTML="<i>"+day+" days "+hour+" hour "+minute+" minute "+second+" seconds"+"<i>";
+		var myTime=setTimeout("disptime()",1000);
+	}
+/*
+* 获得时间差,时间格式为 年-月-日 小时:分钟:秒 或者 年/月/日 小时：分钟：秒
+* 其中，年月日为全格式，例如 ： 2010-10-12 01:00:00
+* 返回精度为：秒，分，小时，天
+*/
+	function CurentTime()
+    { 
+        var now = new Date();
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日       
+        var hh = now.getHours();            //时
+        var mm = now.getMinutes();          //分
+        var second = now.getSeconds()
+        var clock = year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + second;
+        return(clock); 
+    } 
+
+	function GetDateDiff(startTime, endTime, diffType) {
+	    //将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式
+	    startTime = startTime.replace(/\-/g, "/");
+	    endTime = endTime.replace(/\-/g, "/");
+	    //将计算间隔类性字符转换为小写
+	    diffType = diffType.toLowerCase();
+	    var sTime = new Date(startTime);      //开始时间
+	    var eTime = new Date(endTime);  //结束时间
+	    var numberSecond = parseInt((eTime.getTime() - sTime.getTime()) / 1000)
+	    switch (diffType) {
+		  case "second":
+			return parseInt(numberSecond % 86400 % 3600 % 60);
+			break;
+		  case "minute":
+			return parseInt(numberSecond % 86400 % 3600 / 60);
+			break;
+		  case "hour":
+			return parseInt(numberSecond % 86400 / 3600);
+			break;
+		  case "day":
+			return parseInt(numberSecond / 86400);
+			break;
+		  default:
+		  	break;
+	 	}
+	}
+	</script>
+	<link rel="stylesheet" href="../static/motto.css">
+	<style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+    main {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .title {
+      font-family: Ebrima;
+      font-size: 46px;
+      margin: 0;
+      color: #fff;
+    }
+    .mottos {
+      font-size: 28px;
+      margin: 10px 0;
+      font-family: Courier New;
+      color: #fff;
+    }
+  </style>
+</head>
+<body onload="disptime()" bgcolor="#eae0d9" id="body">
+
+	<main>
+    <h1 class="title motto-shake"></h1>
+    <i class="title motto-shake" id="myclock"></i>
+	<i class="mottos"></i>
+  	</main>
+    
+  <script type="text/javascript" src="{% static "motto.min.js" %}"></script>
+  <script>
+    var motto0 = new Motto('.title', {
+      lyric: 'Hold your hand and grow old together with you',
+      flashSpeed: 200,
+      flashTimeout: 1000
+    })
+    var motto1 = new Motto('.mottos', {
+      lyric: 'You Are the Apple of My Eyes',
+      showUpSpeed: 100,
+      flashSpeed: 100
+    })
+  </script>
+</body>
+</html>
